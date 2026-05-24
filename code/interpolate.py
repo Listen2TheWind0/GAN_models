@@ -9,7 +9,7 @@ def main():
     parser = argparse.ArgumentParser(description="DTS410TC CW2 - Latent Space Interpolation")
     parser.add_argument("--checkpoint", type=str, required=True,
                         help="Path to the trained generator checkpoint (.pth)")
-    parser.add_argument("--output_path", type=str, default="d:/GAN_models/results/interpolation.png",
+    parser.add_argument("--output_path", type=str, default="../results/interpolation.png",
                         help="Path to save the output interpolation grid image")
     parser.add_argument("--latent_dim", type=int, default=128,
                         help="Dimension of latent space z")

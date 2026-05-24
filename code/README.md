@@ -65,15 +65,19 @@ pip install numpy matplotlib pillow tqdm pytorch-fid
 
 ## Execution Instructions
 
-Ensure that the CelebA dataset is extracted under the folder `d:/GAN_models/celeba` with the following structure:
+Ensure that the `celeba` dataset folder and `code` folder are placed at the same level (e.g., inside the same root directory):
 ```text
-celeba/
-├── Eval/
-│   └── list_eval_partition.txt
-├── Img/
-│   └── img_align_celeba/
-│       ├── 000001.jpg
-│       └── ...
+/ (Project Root)
+├── celeba/
+│   ├── Eval/
+│   │   └── list_eval_partition.txt
+│   └── Img/
+│       └── img_align_celeba/
+│           ├── 000001.jpg
+│           └── ...
+└── code/
+    ├── dataset.py
+    └── ...
 ```
 
 ### 1. Training a Model
@@ -90,15 +94,15 @@ python train.py --objective lsgan --epochs 50 --batch_size 128
 python train.py --objective wgan --epochs 50 --batch_size 128
 ```
 
-*Note: All checkpoints will be saved in `d:/GAN_models/checkpoints/<objective>/` and results (training loss curves, checkpoint grids) in `d:/GAN_models/results/<objective>/`.*
+*Note: All checkpoints will be saved in `../checkpoints/<objective>/` and results (training loss curves, checkpoint grids) in `../results/<objective>/`.*
 
 ### 2. Latent Space Interpolation
 To perform linear interpolation between randomly sampled latent codes using a trained generator:
 
 ```bash
 python interpolate.py \
-    --checkpoint d:/GAN_models/checkpoints/wgan/checkpoint_epoch_50.pth \
-    --output_path d:/GAN_models/results/wgan/interpolation.png \
+    --checkpoint ../checkpoints/wgan/checkpoint_epoch_50.pth \
+    --output_path ../results/wgan/interpolation.png \
     --num_lines 5 \
     --num_steps 8
 ```
@@ -108,8 +112,8 @@ To calculate the Frechet Inception Distance (FID) using 5,000 generated images c
 
 ```bash
 python evaluate.py \
-    --checkpoint d:/GAN_models/checkpoints/wgan/checkpoint_epoch_50.pth \
-    --celeba_dir d:/GAN_models/celeba \
+    --checkpoint ../checkpoints/wgan/checkpoint_epoch_50.pth \
+    --celeba_dir ../celeba \
     --num_samples 5000 \
     --batch_size 50 \
     --clean

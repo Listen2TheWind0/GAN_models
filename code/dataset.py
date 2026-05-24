@@ -77,7 +77,7 @@ class CelebADataset(Dataset):
 
 if __name__ == "__main__":
     # Quick sanity check
-    root_path = "d:/GAN_models/celeba"
+    root_path = "../celeba"
     try:
         train_dataset = CelebADataset(root_dir=root_path, split='train')
         test_dataset = CelebADataset(root_dir=root_path, split='test')

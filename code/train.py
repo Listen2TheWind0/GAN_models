@@ -13,7 +13,7 @@ def main():
     parser = argparse.ArgumentParser(description="DTS410TC CW2 - GAN Training Script")
     parser.add_argument("--objective", type=str, required=True, choices=["vanilla", "lsgan", "wgan"],
                         help="GAN objective formulation to train: vanilla, lsgan, or wgan")
-    parser.add_argument("--celeba_dir", type=str, default="d:/GAN_models/celeba",
+    parser.add_argument("--celeba_dir", type=str, default="../celeba",
                         help="Path to CelebA dataset root directory")
     parser.add_argument("--epochs", type=int, default=50,
                         help="Number of epochs to train")
@@ -29,9 +29,9 @@ def main():
                         help="Weight clipping threshold c for WGAN critic")
     parser.add_argument("--n_critic", type=int, default=-1,
                         help="Critic updates per Generator update (default: 5 for WGAN, 1 for vanilla/lsgan)")
-    parser.add_argument("--checkpoint_dir", type=str, default="d:/GAN_models/checkpoints",
+    parser.add_argument("--checkpoint_dir", type=str, default="../checkpoints",
                         help="Directory to save weights/checkpoints")
-    parser.add_argument("--result_dir", type=str, default="d:/GAN_models/results",
+    parser.add_argument("--result_dir", type=str, default="../results",
                         help="Directory to save training curves and image grids")
     parser.add_argument("--save_interval", type=int, default=5,
                         help="Checkpoint saving interval in epochs")

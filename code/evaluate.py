@@ -85,7 +85,7 @@ def main():
     parser = argparse.ArgumentParser(description="DTS410TC CW2 - FID Evaluation Script")
     parser.add_argument("--checkpoint", type=str, required=True,
                         help="Path to Generator checkpoint file (.pth)")
-    parser.add_argument("--celeba_dir", type=str, default="d:/GAN_models/celeba",
+    parser.add_argument("--celeba_dir", type=str, default="../celeba",
                         help="Path to CelebA dataset root folder")
     parser.add_argument("--num_samples", type=int, default=5000,
                         help="Number of samples to generate for FID (default: 5000)")
@@ -93,7 +93,7 @@ def main():
                         help="Batch size for generating images and feature extraction")
     parser.add_argument("--latent_dim", type=int, default=128,
                         help="Latent vector dimension z")
-    parser.add_argument("--temp_dir", type=str, default="d:/GAN_models/results/fid_temp",
+    parser.add_argument("--temp_dir", type=str, default="../results/fid_temp",
                         help="Temporary directory to store evaluation images")
     parser.add_argument("--clean", action="store_true",
                         help="If set, removes temporary generated fake images after calculation")
