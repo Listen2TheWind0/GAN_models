@@ -1,0 +1,24 @@
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch checkpoints and weight files
+checkpoints/
+*.pth
+
+# Generated training outputs (curves, samples)
+results/
+
+# CelebA Dataset folder (dataset should not be pushed to GitHub)
+celeba/
+*.zip
+*.tar
+*.gz
+
+# IDE and OS configurations
+.vscode/
+.idea/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
